@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { LibraryService } from './library.service';
 import { Book } from '../models/book.model';
 
@@ -10,7 +10,8 @@ import { Book } from '../models/book.model';
 export class LibraryComponent implements OnInit {
   public bookList: Book[];
   displayedColumns: string[] = ['title', 'author', 'available'];
-  constructor(private libraryService: LibraryService) {
+  constructor(
+    private libraryService: LibraryService) {
   }
 
   ngOnInit(): void {
@@ -23,4 +24,7 @@ export class LibraryComponent implements OnInit {
       this.bookList = books;
     });;
   }
+
+  
 }
+

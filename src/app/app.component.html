@@ -1,11 +1,20 @@
 <mat-toolbar color="primary">
-  <span>Mrs. Schaaf's Library</span>
+  <span>
+    Mrs. Schaaf's Library
+  </span>
+  <span class="example-fill-remaining-space"></span>
+  <span>
+    <button mat-button [matMenuTriggerFor]="beforeMenu"><span class="material-icons">menu</span></button>
+  </span>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="openDialog()">Add Book</button>
+    <button mat-menu-item>Add Student</button>
+  </mat-menu>
 </mat-toolbar>
 <mat-drawer-container style="height: 100%;">
   <mat-drawer mode="side" style="width: 100px; background-color: lightgray;" opened>
     <a mat-button [routerLink]="'/library'" class="sidenav-buttons"> Books </a>
     <a mat-button [routerLink]="'/students'" class="sidenav-buttons"> Students </a>
-    <a mat-button [routerLink]="'/test'" class="sidenav-buttons"> Add a book </a>
   </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
